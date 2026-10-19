@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mofcat"
+version = "0.2.0"
+description = "MOF electrocatalysis literature mining: Scopus search, full-text retrieval, LLM extraction, analysis"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    "openpyxl>=3.1",
+    "lxml>=5.0",
+    "pydantic>=2.0",
+    "langchain-core>=0.3",
+    "langchain-openai>=0.2",
+    "matplotlib>=3.7",
+    "seaborn>=0.13",
+    "adjustText>=1.0",
+]
+
+[project.optional-dependencies]
+# Wiley PDF handling and optional Azure upload (only used by mofcat.ingestion.wiley_tdm helpers)
+wiley = ["pypdf>=4.0", "pymupdf>=1.24", "azure-storage-blob>=12.0"]
+dev = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

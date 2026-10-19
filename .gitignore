@@ -1,0 +1,20 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Data: large, regenerable, and publisher full text must not be redistributed (Elsevier TDM terms)
+data/raw/elsevier_xml/*
+data/processed/*
+data/fulltext/*
+data/cache/*
+!data/**/.gitkeep
+
+# Keep small, citable inputs and results
+!data/raw/scopus/
