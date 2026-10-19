@@ -1,8 +1,8 @@
 """Convert Elsevier full-text XML files to LLM-friendly Markdown.
 
-    python scripts/convert_xml.py                           # data/raw/elsevier_xml/ -> data/processed/elsevier_md/
-    python scripts/convert_xml.py in.xml [more.xml] -o out_dir
-    python scripts/convert_xml.py data/raw/elsevier_xml -o data/processed/elsevier_md --no-refs
+    python utils/convert_xml.py                           # data/raw/elsevier_xml/ -> data/processed/elsevier_md/
+    python utils/convert_xml.py in.xml [more.xml] -o out_dir
+    python utils/convert_xml.py data/raw/elsevier_xml -o data/processed/elsevier_md --no-refs
 
 Thin wrapper around mofcat.ingestion.xml_to_markdown.
 """

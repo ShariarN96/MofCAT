@@ -1,6 +1,6 @@
 ﻿"""Write the Excel deliverables.
 
-    python scripts/06_export_excel.py
+    python utils/export_excel.py
 
 outputs/excel/MOF_verification_all_reactions.xlsx   which papers are genuinely MOF papers
 outputs/excel/<RXN>_performance_metrics.xlsx        metrics + metals + organic linkers per catalyst

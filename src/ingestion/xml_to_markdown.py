@@ -1,9 +1,9 @@
 ﻿"""Convert Elsevier full-text API XML files to LLM-friendly Markdown.
 
 Usage:
-    python scripts/convert_xml.py                         # data/raw/elsevier_xml/ -> data/processed/elsevier_md/
-    python scripts/convert_xml.py in.xml [more.xml] -o out_dir
-    python scripts/convert_xml.py data/raw/elsevier_xml -o data/processed/elsevier_md --no-refs
+    python utils/convert_xml.py                         # data/raw/elsevier_xml/ -> data/processed/elsevier_md/
+    python utils/convert_xml.py in.xml [more.xml] -o out_dir
+    python utils/convert_xml.py data/raw/elsevier_xml -o data/processed/elsevier_md --no-refs
 """
 
 from __future__ import annotations

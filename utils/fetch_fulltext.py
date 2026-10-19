@@ -6,11 +6,11 @@ Saves per reaction under data/fulltext/<REACTION>/:
   manifest.csv    one row per attempted DOI (status, size, tables, paths)
 
 Usage:
-    python scripts/02_fetch_fulltext.py --test-key
-    python scripts/02_fetch_fulltext.py --per-sheet 10          # pilot: 10 per reaction
-    python scripts/02_fetch_fulltext.py --reactions NO3RR --per-sheet 10
-    python scripts/02_fetch_fulltext.py --all                   # every Elsevier article
-    python scripts/02_fetch_fulltext.py --dry-run
+    python utils/fetch_fulltext.py --test-key
+    python utils/fetch_fulltext.py --per-sheet 10          # pilot: 10 per reaction
+    python utils/fetch_fulltext.py --reactions NO3RR --per-sheet 10
+    python utils/fetch_fulltext.py --all                   # every Elsevier article
+    python utils/fetch_fulltext.py --dry-run
 
 Pilot mode picks a reproducible random sample (seed 42) of Elsevier research
 articles (reviews excluded) and keeps drawing until N papers with real full text

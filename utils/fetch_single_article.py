@@ -2,7 +2,7 @@
 
 A quick way to check your API key, institutional entitlement, or the XML converters on a single DOI.
 
-    python scripts/fetch_single_article.py 10.1016/j.electacta.2020.137384
+    python utils/fetch_single_article.py 10.1016/j.electacta.2020.137384
 
 Saves:
     data/raw/elsevier_xml/<doi>.xml

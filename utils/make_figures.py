@@ -1,7 +1,7 @@
 ﻿"""Six-panel catalyst / linker / metal figure per reaction.
 
-    python scripts/07_make_figures.py
-    python scripts/07_make_figures.py --reactions HER OER
+    python utils/make_figures.py
+    python utils/make_figures.py --reactions HER OER
 
 Writes outputs/figures/<RXN>_6panel.png and individual panels to outputs/figures/panels/<RXN>/.
 """

@@ -1,8 +1,8 @@
 ﻿"""Run the whole Elsevier pipeline on every eligible paper (resumable; everything is cached).
 
-    python scripts/run_all.py                    # fetch -> verify -> extract -> resolve -> excel -> figures
-    python scripts/run_all.py --from verify      # resume from a stage
-    python scripts/run_all.py --from search      # also re-run the Scopus search first (re-queries the API)
+    python utils/run_all.py                    # fetch -> verify -> extract -> resolve -> excel -> figures
+    python utils/run_all.py --from verify      # resume from a stage
+    python utils/run_all.py --from search      # also re-run the Scopus search first (re-queries the API)
 
 Stages: search -> fetch -> verify -> extract -> resolve -> excel -> figures
 Outputs: data/raw/scopus/, data/fulltext/<RXN>/..., outputs/excel/*.xlsx, outputs/figures/
@@ -18,23 +18,23 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 PY = sys.executable
-S = ROOT / "scripts"
+S = ROOT / "utils"
 
 TARGET = 50              # MOF-verified papers wanted per reaction (net, after filtering)
 BUFFER_SHEET = 60        # full texts fetched per reaction (buffer for papers rejected by MOF verification)
 SMALL_SHEET = 100        # N2RR / NO3RR have few Elsevier papers -> fetch every available one
-FETCH = [PY, "-u", str(S / "02_fetch_fulltext.py"), "--interval", "2.0"]  # gentle 2 s between API calls
+FETCH = [PY, "-u", str(S / "fetch_fulltext.py"), "--interval", "2.0"]  # gentle 2 s between API calls
 
 STAGES = {
-    "search": [PY, "-u", str(S / "01_search_scopus.py")],
+    "search": [PY, "-u", str(S / "search_scopus.py")],
     "fetch": [FETCH + ["--reactions", "HER", "OER", "ORR", "--per-sheet", str(BUFFER_SHEET)],
               FETCH + ["--reactions", "N2RR", "NO3RR", "--per-sheet", str(SMALL_SHEET)]],
-    "verify": [PY, "-u", str(S / "03_verify_mof.py"), "--workers", "2"],
-    "extract": [PY, "-u", str(S / "04_extract_metrics.py"), "--only-verified", "--workers", "2",
+    "verify": [PY, "-u", str(S / "verify_mof.py"), "--workers", "2"],
+    "extract": [PY, "-u", str(S / "extract_metrics.py"), "--only-verified", "--workers", "2",
                 "--limit", str(TARGET)],
-    "resolve": [PY, "-u", str(S / "05_resolve_linkers.py"), "--workers", "2"],
-    "excel": [PY, "-u", str(S / "06_export_excel.py"), "--out", str(ROOT / "outputs" / "excel")],
-    "figures": [PY, "-u", str(S / "07_make_figures.py"), "--out", str(ROOT / "outputs" / "figures")],
+    "resolve": [PY, "-u", str(S / "resolve_linkers.py"), "--workers", "2"],
+    "excel": [PY, "-u", str(S / "export_excel.py"), "--out", str(ROOT / "outputs" / "excel")],
+    "figures": [PY, "-u", str(S / "make_figures.py"), "--out", str(ROOT / "outputs" / "figures")],
 }
 RETRY = {"fetch", "verify", "extract", "resolve"}  # rerun once to pick up transient (rate-limit) failures
 

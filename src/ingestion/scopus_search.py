@@ -1,6 +1,6 @@
 """Stage 1: search Scopus for every reaction query and save the records.
 
-    python scripts/01_search_scopus.py
+    python utils/search_scopus.py
 
 Writes to data/raw/scopus/: per-reaction CSVs, scopus_results_ALL.csv/.xlsx and summary tables.
 """

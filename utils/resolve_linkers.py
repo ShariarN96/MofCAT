@@ -1,6 +1,6 @@
-﻿"""Second-pass linker/metal resolution with text fact-check (run after 04_extract_metrics.py).
+﻿"""Second-pass linker/metal resolution with text fact-check (run after extract_metrics.py).
 
-    python scripts/05_resolve_linkers.py --workers 5
+    python utils/resolve_linkers.py --workers 5
 
 Reads  data/fulltext/<RXN>/extractions/<rxn>_records.csv
 Writes data/fulltext/<RXN>/extractions/<rxn>_records_resolved.csv   (used by the figures/Excel export)

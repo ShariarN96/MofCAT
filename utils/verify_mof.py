@@ -1,11 +1,11 @@
 ﻿"""Fact-check, from the saved full text, that each paper is genuinely about a MOF electrocatalyst.
 
-    python scripts/03_verify_mof.py --limit 10          # the 10 pilot papers per reaction
-    python scripts/03_verify_mof.py                      # everything downloaded
-    python scripts/03_verify_mof.py --reactions NO3RR --model gpt-4o
+    python utils/verify_mof.py --limit 10          # the 10 pilot papers per reaction
+    python utils/verify_mof.py                      # everything downloaded
+    python utils/verify_mof.py --reactions NO3RR --model gpt-4o
 
 Writes data/fulltext/<RXN>/verification/<rxn>_mof_verification.csv and prints a summary.
-Then run: python scripts/04_extract_metrics.py --only-verified
+Then run: python utils/extract_metrics.py --only-verified
 """
 
 from __future__ import annotations

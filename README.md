@@ -74,7 +74,7 @@ mof_pipeline/
 │       ├── figures.py
 │       ├── science_figures.py
 │       └── panel_figures.py
-├── scripts/                     command-line entry points, one per step
+├── utils/                       command-line entry points, one per step
 ├── data/                        inputs and intermediate files
 ├── outputs/                     Excel workbooks, figures, reports
 ├── tests/

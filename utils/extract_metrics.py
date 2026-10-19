@@ -1,14 +1,14 @@
 ﻿"""Extract reaction-specific performance metrics from saved Elsevier full texts.
 
-Run scripts/02_fetch_fulltext.py first. Reads data/fulltext/<REACTION>/manifest.csv
+Run utils/fetch_fulltext.py first. Reads data/fulltext/<REACTION>/manifest.csv
 (papers with status 'ok') and writes, per reaction, to <REACTION>/extractions/:
   <rxn>_records.csv / .json   one row per catalyst x condition
   <rxn>_papers.csv            one row per paper (flags, confidence, notes)
 
 Usage:
-    python scripts/04_extract_metrics.py --dry-run
-    python scripts/04_extract_metrics.py --limit 10                 # pilot: 10 per reaction
-    python scripts/04_extract_metrics.py --reactions HER --limit 2 --model gpt-4o
+    python utils/extract_metrics.py --dry-run
+    python utils/extract_metrics.py --limit 10                 # pilot: 10 per reaction
+    python utils/extract_metrics.py --reactions HER --limit 2 --model gpt-4o
 """
 
 from __future__ import annotations
@@ -46,7 +46,7 @@ def main() -> int:
     ap.add_argument("--model", default="gpt-4o-mini")
     ap.add_argument("--limit", type=int, default=None, help="papers per reaction")
     ap.add_argument("--only-verified", action="store_true",
-                    help="skip papers not marked 'verified' by scripts/03_verify_mof.py")
+                    help="skip papers not marked 'verified' by utils/verify_mof.py")
     ap.add_argument("--workers", type=int, default=4, help="parallel LLM calls")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
@@ -73,13 +73,13 @@ def main() -> int:
     for rxn in args.reactions:
         mp = root / rxn / "manifest.csv"
         if not mp.exists():
-            print(f"{rxn}: no manifest, run scripts/02_fetch_fulltext.py first")
+            print(f"{rxn}: no manifest, run utils/fetch_fulltext.py first")
             continue
         ver_path = None
         if args.only_verified:
             ver_path = root / rxn / "verification" / f"{rxn.lower()}_mof_verification.csv"
             if not ver_path.exists():
-                print(f"{rxn}: no verification file; run scripts/03_verify_mof.py first")
+                print(f"{rxn}: no verification file; run utils/verify_mof.py first")
                 continue
         papers, records = run_reaction(mp, rxn, model=args.model, limit=args.limit,
                                        verification_path=ver_path, workers=args.workers)
