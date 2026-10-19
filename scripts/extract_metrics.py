@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Extract reaction-specific performance metrics from saved Elsevier full texts.
+﻿"""Extract reaction-specific performance metrics from saved Elsevier full texts.
 
 Run scripts/02_fetch_fulltext.py first. Reads data/fulltext/<REACTION>/manifest.csv
 (papers with status 'ok') and writes, per reaction, to <REACTION>/extractions/:

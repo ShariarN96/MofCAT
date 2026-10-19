@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Convert Elsevier full-text XML files to LLM-friendly Markdown.
 
     python scripts/convert_xml.py                           # data/raw/elsevier_xml/ -> data/processed/elsevier_md/

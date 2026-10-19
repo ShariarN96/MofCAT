@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Write the Excel deliverables.
+﻿"""Write the Excel deliverables.
 
     python scripts/06_export_excel.py
 

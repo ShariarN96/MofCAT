@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Download and parse Elsevier full texts for the reaction sheets in data/raw/scopus/scopus_results_ALL.xlsx.
+﻿"""Download and parse Elsevier full texts for the reaction sheets in data/raw/scopus/scopus_results_ALL.xlsx.
 
 Saves per reaction under data/fulltext/<REACTION>/:
   xml/            raw API responses

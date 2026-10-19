@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Fact-check, from the saved full text, that each paper is genuinely about a MOF electrocatalyst.
+﻿"""Fact-check, from the saved full text, that each paper is genuinely about a MOF electrocatalyst.
 
     python scripts/03_verify_mof.py --limit 10          # the 10 pilot papers per reaction
     python scripts/03_verify_mof.py                      # everything downloaded

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Stage 1: search Scopus for every reaction query and save the records.
 
     python scripts/01_search_scopus.py

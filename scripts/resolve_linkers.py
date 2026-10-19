@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Second-pass linker/metal resolution with text fact-check (run after 04_extract_metrics.py).
+﻿"""Second-pass linker/metal resolution with text fact-check (run after 04_extract_metrics.py).
 
     python scripts/05_resolve_linkers.py --workers 5
 

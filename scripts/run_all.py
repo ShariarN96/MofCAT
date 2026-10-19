@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Run the whole Elsevier pipeline on every eligible paper (resumable; everything is cached).
+﻿"""Run the whole Elsevier pipeline on every eligible paper (resumable; everything is cached).
 
     python scripts/run_all.py                    # fetch -> verify -> extract -> resolve -> excel -> figures
     python scripts/run_all.py --from verify      # resume from a stage

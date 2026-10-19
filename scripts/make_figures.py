@@ -1,5 +1,4 @@
-﻿#!/usr/bin/env python3
-"""Six-panel catalyst / linker / metal figure per reaction.
+﻿"""Six-panel catalyst / linker / metal figure per reaction.
 
     python scripts/07_make_figures.py
     python scripts/07_make_figures.py --reactions HER OER

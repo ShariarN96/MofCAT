@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Download one article's full-text XML from Elsevier and convert it to readable text / Markdown.
 
 A quick way to check your API key, institutional entitlement, or the XML converters on a single DOI.
